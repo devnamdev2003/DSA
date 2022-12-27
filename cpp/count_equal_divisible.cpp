@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <stack>
 using namespace std;
 
 int function(vector<int> nums, int k)
@@ -12,13 +11,15 @@ int function(vector<int> nums, int k)
             {
                   if (nums[i] == nums[j] && i != j)
                   {
-                        cout << nums[i] << ":" << i << " " << nums[j] << ":" << j << endl;
-                        ans++;
+                        if ((i * j) % 2 == 0)
+                        {
+                              ans++;
+                        }
                   }
             }
       }
 
-      return ans;
+      return ans / 2;
 }
 void show(vector<int> v)
 {

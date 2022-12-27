@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <stack>
 using namespace std;
 
 vector<int> function(vector<int> nums)
