@@ -19,7 +19,7 @@ int function(vector<int> nums, int target)
             else if (nums[mid] > target)
             {
                   low = low;
-                  high = mid - 1;
+                  high = mid;
                   mid = ((high - low) / 2) + low;
             }
             else if (nums[mid] < target)
@@ -47,12 +47,12 @@ void show(vector<int> v)
 }
 int main()
 {
-      vector<int> v1 = {-1, 0, 3, 5, 9, 12};
+      vector<int> v1 = {3, 4, 9, 12};
       // for (int i = 0; i < v1.size(); i++)
       // {
       //       cout << function(v1, v1[i]) << v1[i] << endl;
       // }
-      cout << function(v1, -11);
+      cout << function(v1, 5);
 
       return 0;
 }
