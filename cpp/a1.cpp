@@ -2,27 +2,32 @@
 #include <vector>
 using namespace std;
 
-vector<int> function(vector<int> nums)
+int function(vector<int> nums)
 {
-      vector<int> ans;
-
+      int ans;
 
       return ans;
 }
 void show(vector<int> v)
 {
 
+      cout << "[";
       for (int i = 0; i < v.size(); i++)
       {
-            cout << v[i] << " ";
+            if (i < v.size() - 1)
+            {
+                  cout << v[i] << ",";
+            }
+            else
+            {
+                  cout << v[i];
+            }
       }
-      cout<<endl;
+      cout << "]";
+      cout << endl;
 }
 int main()
 {
-      vector<int> v1 = {1,2,3,1,1,3};
-      show(v1);
-      vector<int> v2 = function(v1);
-      show(v2);
+
       return 0;
 }
