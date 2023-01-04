@@ -5,16 +5,25 @@ vector<int> function(vector<int> numbers, int target)
 {
 
       vector<int> ans;
-      for (int i = 0; i < numbers.size(); i++)
+      int i = 0;
+      int j = numbers.size() - 1;
+      while (i < j)
       {
-            for (int j = i; j < numbers.size(); j++)
+            int sum = numbers[i] + numbers[j];
+
+            if (target == sum)
             {
-                  if (numbers[i] + numbers[j] == target)
-                  {
-                        ans.push_back(i + 1);
-                        ans.push_back(j + 1);
-                        return ans;
-                  }
+                  ans.push_back(i + 1);
+                  ans.push_back(j + 1);
+                  break;
+            }
+            if (sum > target)
+            {
+                  j--;
+            }
+            if (sum < target)
+            {
+                  i++;
             }
       }
       return ans;
