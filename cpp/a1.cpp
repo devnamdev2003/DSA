@@ -2,7 +2,7 @@
 #include <vector>
 using namespace std;
 
-int function(vector<int> nums)
+int function(vector<int> arr)
 {
       int ans;
 
