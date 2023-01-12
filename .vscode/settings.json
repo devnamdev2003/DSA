@@ -46,6 +46,9 @@
             "type_traits": "cpp",
             "utility": "cpp",
             "initializer_list": "cpp",
-            "stack": "cpp"
+            "stack": "cpp",
+            "bitset": "cpp",
+            "valarray": "cpp",
+            "regex": "cpp"
       }
 }
