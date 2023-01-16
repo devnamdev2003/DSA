@@ -1,13 +1,17 @@
 #include <iostream>
 #include <vector>
 using namespace std;
-
-int function(vector<int> arr)
+class Solution
 {
-      int ans;
+public:
+      int function(vector<int> arr)
+      {
+            int ans;
 
-      return ans;
-}
+            return ans;
+      }
+};
+
 void show(vector<int> v)
 {
 
@@ -28,6 +32,7 @@ void show(vector<int> v)
 }
 int main()
 {
+      Solution obj;
 
       return 0;
 }
