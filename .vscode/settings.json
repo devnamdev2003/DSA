@@ -49,6 +49,8 @@
             "stack": "cpp",
             "bitset": "cpp",
             "valarray": "cpp",
-            "regex": "cpp"
+            "regex": "cpp",
+            "complex": "cpp",
+            "chrono": "cpp"
       }
 }
