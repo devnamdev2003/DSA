@@ -51,6 +51,7 @@
             "valarray": "cpp",
             "regex": "cpp",
             "complex": "cpp",
-            "chrono": "cpp"
+            "chrono": "cpp",
+            "list": "cpp"
       }
 }

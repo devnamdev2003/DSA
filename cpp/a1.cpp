@@ -12,7 +12,7 @@ public:
       }
 };
 
-void show(vector<int> v)
+void show_1d(vector<int> v)
 {
 
       cout << "[";
@@ -29,6 +29,18 @@ void show(vector<int> v)
       }
       cout << "]";
       cout << endl;
+}
+void show_2d(vector<vector<int>> v)
+{
+
+      for (int i = 0; i < v.size(); i++)
+      {
+            for (int j = 0; j < v[1].size(); j++)
+            {
+                  cout << v[i][j] << " ";
+            }
+            cout << endl;
+      }
 }
 int main()
 {
