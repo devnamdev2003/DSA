@@ -1,10 +1,13 @@
-
-nums = [1, 15, 6, 3]
+banned = [11]
+n = 7
+maxSum = 60
 sum = 0
-digi = 0
-for val in nums:
-    sum += val
-    val = str(val)
-    for val2 in val:
-            digi=digi+int(val2)
-print(abs(digi-sum))
+count = 0
+for i in range(1, n+1):
+    if i not in banned:
+            sum = sum+i
+            if(sum <= maxSum):
+                  count = count+1
+            else:
+                  break    
+print(count)

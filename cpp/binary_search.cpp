@@ -4,12 +4,10 @@ using namespace std;
 
 int function(vector<int> nums, int target)
 {
-      int ans = -1;
-      int len = nums.size();
-      int mid = len / 2;
+      int mid = nums.size() / 2;
       int low = 0;
-      int high = len;
-      for (int i = 0; i < len; i++)
+      int high = nums.size() - 1;
+      for (int i = 0; i < nums.size(); i++)
       {
             if (nums[mid] == target)
             {
@@ -17,28 +15,17 @@ int function(vector<int> nums, int target)
             }
             else if (nums[mid] > target)
             {
-                  low = low;
-                  high = mid;
+                  high = mid - 1;
                   mid = ((high - low) / 2) + low;
             }
             else if (nums[mid] < target)
             {
                   low = mid + 1;
-                  high = len;
                   mid = ((high - low) / 2) + low;
             }
       }
 
-      return ans;
-}
-void show(vector<int> v)
-{
-
-      for (int i = 0; i < v.size(); i++)
-      {
-            cout << v[i] << " ";
-      }
-      cout << endl;
+      return -1;
 }
 int main()
 {
@@ -47,7 +34,7 @@ int main()
       // {
       //       cout << function(v1, v1[i]) << v1[i] << endl;
       // }
+      function(v1, 54);
 
-      
       return 0;
 }

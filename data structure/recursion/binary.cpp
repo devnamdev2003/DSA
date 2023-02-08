@@ -50,5 +50,5 @@ int bin_recursive(vector<int> arr, int target, int low, int high)
 }
 int main()
 {
-      cout << bin_recursive({1, 3, 4, 5, 6, 7, 8, 9}, 8, 0, 7) << endl;
+      cout << bin_recursive({1, 3, 4, 5, 6, 7, 8, 9}, 18, 0, 7) << endl;
 }
