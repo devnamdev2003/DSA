@@ -24,7 +24,7 @@
             "sstream": "cpp",
             "stdexcept": "cpp",
             "streambuf": "cpp",
-            "typeinfo": "cpp",
+            "typeinfo": "cpp", 
             "array": "cpp",
             "atomic": "cpp",
             "bit": "cpp",
