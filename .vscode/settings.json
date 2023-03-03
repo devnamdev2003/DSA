@@ -24,7 +24,7 @@
             "sstream": "cpp",
             "stdexcept": "cpp",
             "streambuf": "cpp",
-            "typeinfo": "cpp", 
+            "typeinfo": "cpp",
             "array": "cpp",
             "atomic": "cpp",
             "bit": "cpp",
@@ -52,6 +52,7 @@
             "regex": "cpp",
             "complex": "cpp",
             "chrono": "cpp",
-            "list": "cpp"
+            "list": "cpp",
+            "forward_list": "cpp"
       }
 }
