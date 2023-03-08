@@ -80,19 +80,43 @@ void display2(node *tail)
         tail = tail->pre;
     }
 }
+
+node *reverse(node *head)
+{
+    if (head->next == nullptr)
+    {
+        return head;
+    }
+    node *prev = nullptr;
+    node *temp = head;
+    while (temp != nullptr)
+    {
+        node *temp2 = temp->next;
+        temp->next = prev;
+        temp->pre = temp2;
+        prev = temp;
+        temp = temp2;
+    }
+    return prev;
+}
+
 int main()
 {
     node *head = nullptr;
     node *tail = nullptr;
-    insert(head, tail, 12, 11);
-    insert(head, tail, 13, 22);
-    insert(head, tail, 14, 12);
-    insert(head, tail, 15);
-    insert(head, tail, 18, 1);
-    insert(head, tail, 16, 2);
-    insert(head, tail, 17, 6);
+    // insert(head, tail, 12, 11);
+    // insert(head, tail, 13, 22);
+    // insert(head, tail, 14, 12);
+    // insert(head, tail, 18, 1);
+    // insert(head, tail, 16, 2);
+    // insert(head, tail, 17, 6);
+    for (int i = 1; i < 6; i++)
+    {
+        insert(head, tail, i);
+    }
     display1(head);
     cout << endl;
+    display1(reverse(head));
     // display2(tail);
 
     return 0;

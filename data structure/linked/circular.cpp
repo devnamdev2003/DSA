@@ -59,11 +59,15 @@ void print(node *tail)
 int main()
 {
     node *tail = nullptr;
-    insertT(tail, 12);
-    insertT(tail, 122);
-    insertH(tail, 11);
-    insertH(tail, 10);
-    insertH(tail, 177);
+    for (int i = 1; i <= 6; i++)
+    {
+        insertT(tail, i);
+    }
+    // insertT(tail, 12);
+    // insertT(tail, 122);
+    // insertH(tail, 11);
+    // insertH(tail, 10);
+    // insertH(tail, 177);
     print(tail);
     return 0;
 }
