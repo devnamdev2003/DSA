@@ -27,7 +27,7 @@ public:
     }
     int maxProfit2(vector<int> prices)
     {
-        int sum=0;
+        int sum = 0;
         for (int i = 0; i < prices.size() - 1; i++)
         {
             if (prices[i] < prices[i + 1])
@@ -41,7 +41,7 @@ public:
 int main()
 {
     Solution o;
-    cout << o.maxProfit2({1,2,3,4,5});
+    cout << o.maxProfit2({1, 2, 3, 4, 5});
 
     return 0;
 }
