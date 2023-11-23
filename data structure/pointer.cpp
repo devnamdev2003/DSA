@@ -1,24 +1,21 @@
 #include <iostream>
+#include <bits/stdc++.h>
+
 using namespace std;
-void fun(int a)
+
+class Node
 {
-      a = a + 1;
-      cout << a << endl;
-}
-void fun2(int &a)
+public:
+      static int a;
+};
+
+int Node::a = 90;
+int fun()
 {
-      a += 1;
-      cout << a << endl;
+      
 }
 int main()
 {
-      char *c = "abcde";
-      char **p = &c;
-
-      cout << *c << endl;
-      *p = "1234";
-      cout << c << endl;
-      cout << *p << endl;
-
+      cout << Node::a;
       return 0;
 }

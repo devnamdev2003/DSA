@@ -1,128 +1,65 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-#include <cmath>
+#include <bits/stdc++.h>
 using namespace std;
-void print(int n)
+
+long long solve(int N, int start, int finish, vector<int> Ticket_cost)
 {
-    if (n % 10 == 0)
+    vector<pair<int, int>> adj[N + 1];
+    adj[1].push_back({N, Ticket_cost[N - 1]});
+    adj[1].push_back({1 + 1, Ticket_cost[0]});
+
+    adj[N].push_back({N - 1, Ticket_cost[N - 2]});
+    adj[N].push_back({1, Ticket_cost[N - 1]});
+    for (int i = 1; i < N + 1; i++)
     {
-        return;
-    }
-    cout << n % 10;
-    print(n / 10);
-}
-bool palindrone1(int n)
-{
-    int d = n;
-    int ans = 0;
-    while (n > 0)
-    {
-        ans = (ans * 10) + (n % 10);
-        n = n / 10;
-    }
-    bool s = d == ans ? 1 : 0;
-    return s;
-}
-bool armstrong(int n)
-{
-    int d = n;
-    int sum = 0;
-    while (n > 0)
-    {
-        sum = sum + (pow((n % 10), 3));
-        n = n / 10;
-    }
-    bool ok = (d == sum) ? true : false;
-    return ok;
-}
-void print_divisiors(int n)
-{
-    int ans = 1;
-    while (ans <= n / ans)
-    {
-        if (n % ans == 0)
+        if (i != Ticket_cost[0] && i != Ticket_cost[N - 1])
         {
-            cout << ans << endl;
-            if (ans != n / ans)
+            adj[i].push_back({i - 1, Ticket_cost[i - 2]});
+            adj[i].push_back({i + 1, Ticket_cost[i - 1]});
+        }
+    }
+    for (int i = 0; i < N + 1; i++)
+    {
+        cout << i << ": ";
+        for (int j = 0; j < adj[i].size(); j++)
+        {
+            cout << adj[i][j].first << "(" << adj[i][j].second << ")"
+                 << "->";
+        }
+        cout << endl;
+    }
+
+    priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> minH;
+    vector<int> dist(N + 1, INT16_MAX);
+    minH.push({0, start});
+    dist[start] = 0;
+    while (minH.size() != 0)
+    {
+        auto current = minH.top();
+        int d = current.first;
+        int node = current.second;
+        for (auto i : adj[node])
+        {
+            if (i.second + d < dist[i.first])
             {
-                cout << n / ans << endl;
+                minH.push({(i.second + d), i.first});
+                dist[i.first] = i.second + d;
             }
         }
-        ans++;
+        minH.pop();
     }
-}
-int gcd_number(int n1, int n2)
-{
-    if (n1 != 0 && n2 != 0)
-    {
-        int mn = min(n1, n2);
-        int mx = max(n1, n2);
-        int ans = gcd_number(mx - mn, mn);
-        return ans;
-    }
-    else
-    {
-        return max(n1, n2);
-    }
-    return 1;
+    return dist[finish];
 }
 
-int sumofn(int n)
-{
-    if (n == 0)
-    {
-        return n;
-    }
-    return sumofn(n - 1) + n;
-}
-
-int factorialofn(int n)
-{
-    if (n == 1)
-    {
-        return n;
-    }
-    return factorialofn(n - 1) * n;
-}
-
-void reverseanarry(int *a, int l, int r)
-{
-    if (l > r)
-    {
-        return;
-    }
-
-    swap(a[l], a[r]);
-    reverseanarry(a, l++, r--);
-}
-
-bool palindrone2(string s, int r, int l = 0)
-{
-    if (l > r)
-    {
-        return true;
-    }
-    if (s[l] != s[r])
-    {
-        return false;
-    }
-    return palindrone2(s, --r, ++l);
-}
 int main()
 {
-    // cout<<palindrrome(434);
-    // cout << armstrong(371);
-    // print_divisiors(23);
-    // cout << gcd_number(22, 150);
-    // cout << sumofn(5);
-    // int arr[] = {1, 2, 3, 4, 56};
-    // reverseanarry(arr, 0, 4);
-    // for (int i = 0; i < 5; i++)
-    // {
-    //     cout << arr[i] << " ";
-    // }
-    cout << palindrone2("a", 0);
 
-    return 0;
+    int N = 10;
+
+    int start = 5;
+
+    int finish = 3;
+
+    vector<int> Ticket_cost = {4, 14, 10, 7, 3, 13, 5, 15, 13, 4};
+    int out_ = solve(N, start, finish, Ticket_cost);
+    cout << out_;
 }
